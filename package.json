@@ -6,13 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite": "lite-server",
-    "start": "npm run lite",
-    "scss": "sass css:css"
+    "start": "npm run watch:all",
+    "scss": "sass css:css",
+    "watch:scss": "onchange 'css/*.scss' -- npm run scss",
+    "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'"
   },
   "author": "Henna Singh",
   "license": "ISC",
   "devDependencies": {
     "lite-server": "^2.6.1",
+    "onchange": "^7.0.0",
+    "parallelshell": "3.0.1",
     "sass": "^1.58.3"
   },
   "dependencies": {
